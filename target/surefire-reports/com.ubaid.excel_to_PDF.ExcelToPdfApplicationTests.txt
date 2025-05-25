@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.ubaid.excel_to_PDF.ExcelToPdfApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.175 s -- in com.ubaid.excel_to_PDF.ExcelToPdfApplicationTests

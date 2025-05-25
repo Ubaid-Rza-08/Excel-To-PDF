@@ -1,77 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.4.5</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
+
 	<groupId>com.ubaid</groupId>
 	<artifactId>excel-to-PDF</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>excel-to-PDF</name>
-	<description>Demo project for Spring Boot</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
+	<description>Excel to PDF conversion with formatting</description>
+
 	<properties>
 		<java.version>17</java.version>
+		<poi.version>5.3.0</poi.version>
+		<itext7.version>8.0.5</itext7.version>
+		<commons-io.version>2.16.1</commons-io.version>
 	</properties>
+
+<!--	<dependencies>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-web</artifactId>-->
+<!--		</dependency>-->
+
+<!--		<dependency>-->
+<!--			<groupId>org.apache.poi</groupId>-->
+<!--			<artifactId>poi</artifactId>-->
+<!--			<version>5.2.3</version>-->
+<!--		</dependency>-->
+
+<!--		<dependency>-->
+<!--			<groupId>org.apache.poi</groupId>-->
+<!--			<artifactId>poi-ooxml</artifactId>-->
+<!--			<version>5.2.3</version>-->
+<!--		</dependency>-->
+
+<!--		<dependency>-->
+<!--			<groupId>com.itextpdf</groupId>-->
+<!--			<artifactId>itextpdf</artifactId>-->
+<!--			<version>5.5.13.3</version>-->
+<!--		</dependency>-->
+<!--	</dependencies>-->
+
 	<dependencies>
-		<!-- Apache POI for Excel handling -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>5.2.3</version>  <!-- Use latest stable version -->
-		</dependency>
-
-		<!-- iText PDF 5.x (this matches your imports com.itextpdf.text.*) -->
-		<dependency>
-			<groupId>com.itextpdf</groupId>
-			<artifactId>itextpdf</artifactId>
-			<version>5.5.13.3</version>  <!-- Latest of iText 5 -->
-		</dependency>
-
-		<!-- Jakarta Servlet API (for HttpServletResponse) -->
-		<dependency>
-			<groupId>jakarta.servlet</groupId>
-			<artifactId>jakarta.servlet-api</artifactId>
-			<version>5.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<!-- Spring Boot Starter Web (if not already added) -->
+		<!-- Spring Boot Web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-
-
-		<!--		&lt;!&ndash; Optional: For Jakarta support in newer Spring Boot &ndash;&gt;-->
-<!--		<dependency>-->
-<!--			<groupId>jakarta.servlet</groupId>-->
-<!--			<artifactId>jakarta.servlet-api</artifactId>-->
-<!--			<version>6.0.0</version>-->
-<!--			<scope>provided</scope>-->
-<!--		</dependency>-->
-
+		<!-- Apache POI for Excel -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+
+		<!-- iText 7 for PDF generation -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itext7-core</artifactId>
+			<version>${itext7.version}</version>
+			<type>pom</type>
+		</dependency>
+
+		<!-- Apache Commons IO (optional, for stream/image utilities) -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -84,4 +88,14 @@
 		</plugins>
 	</build>
 
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+		<repository>
+			<id>itext</id>
+			<url>https://repo.itextsupport.com/releases</url>
+		</repository>
+	</repositories>
 </project>
